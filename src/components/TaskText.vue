@@ -108,3 +108,10 @@
     />
   </v-container>
 </template>
+<style scoped>
+.v-list-item-title {
+  white-space: normal;
+  word-wrap: break-word;
+  overflow: visible;
+}
+</style>
