@@ -4,7 +4,8 @@
   },
   "map": {
     "marker": "Markers on map",
-    "placeholder": "Choose marker"
+    "placeholder": "Choose marker",
+    "click": "You clicked"
   },
   "link": {
     "home": "Home",

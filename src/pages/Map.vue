@@ -3,6 +3,8 @@ import { onMounted, ref } from 'vue';
 import { useDisplay } from 'vuetify';
 import * as L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
 
 const { mdAndUp } = useDisplay();
 
@@ -103,7 +105,7 @@ onMounted(async () => {
         }
         L.popup()
           .setLatLng([lat, lng])
-          .setContent(`Вы кликнули в точку:<br> ${popupText}`)
+          .setContent(`${t('map.click')}:<br> ${popupText}`)
           .openOn(map.value as L.Map);
       });
 
@@ -138,15 +140,31 @@ function centerOnMarker(marker: Marker) {
       <v-row>
         <!-- Left column: List of markers -->
         <v-col cols="12" md="4">
-          <component :is="currentComponent" @centerOnMarker="centerOnMarker" />
+          <div class="scrollable-list">
+            <component
+              :is="currentComponent"
+              @centerOnMarker="centerOnMarker"
+            />
+          </div>
         </v-col>
 
         <!-- Right column: Map -->
         <v-col cols="12" md="8" class="pa-4">
           <div id="map" style="height: 500px"></div>
-          <!-- The map will be placed here -->
         </v-col>
       </v-row>
     </v-container>
   </v-theme-provider>
 </template>
+<style scoped>
+.scrollable-list {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+@media (max-width: 960px) {
+  .scrollable-list {
+    max-height: none;
+  }
+}
+</style>
