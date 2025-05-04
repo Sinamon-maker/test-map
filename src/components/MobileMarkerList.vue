@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { useAppStore } from '@/stores/app';
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
 
 const appStore = useAppStore();
 const emit = defineEmits(['centerOnMarker']);
@@ -11,7 +13,7 @@ const emit = defineEmits(['centerOnMarker']);
     :items="appStore.markers"
     item-title="address"
     item-value="id"
-    label="Выберите маркер"
+    :label="`${t('map.placeholder')}`"
     return-object
     @update:modelValue="(marker) => emit('centerOnMarker', marker)"
   />

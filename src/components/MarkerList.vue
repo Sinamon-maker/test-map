@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { useAppStore } from '@/stores/app';
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
 
 const appStore = useAppStore();
 defineEmits(['centerOnMarker']);
 </script>
 <template>
-  <h3 class="text-h5">Маркер на карте</h3>
+  <h3 class="text-h5">{{ t('map.marker') }}</h3>
   <!-- List of markers -->
   <v-list style="background-color: transparent">
     <v-list-item

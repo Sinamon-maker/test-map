@@ -1,0 +1,13 @@
+{
+  "home": {
+    "title": "Test task SquareGPS"
+  },
+  "map": {
+    "marker": "Markers on map",
+    "placeholder": "Choose marker"
+  },
+  "link": {
+    "home": "Home",
+    "map": "Map"
+  }
+}

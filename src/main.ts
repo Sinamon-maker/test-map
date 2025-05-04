@@ -4,20 +4,21 @@
  * Bootstraps Vuetify and other plugins then mounts the App`
  */
 
-// Plugins
-import { registerPlugins } from '@/plugins'
-
 // Components
-import App from './App.vue'
+import App from './App.vue';
 
 // Composables
-import { createApp } from 'vue'
+import { createApp } from 'vue';
+import i18n from '../src/i18n/index';
+
+// Plugins
+import { registerPlugins } from '@/plugins';
 
 // Styles
-import 'unfonts.css'
+import 'unfonts.css';
+console.log('Current locale main:', i18n.global);
+const app = createApp(App);
+app.use(i18n);
+registerPlugins(app);
 
-const app = createApp(App)
-
-registerPlugins(app)
-
-app.mount('#app')
+app.mount('#app');

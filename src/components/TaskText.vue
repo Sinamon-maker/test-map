@@ -1,6 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
+</script>
 <template>
-  <h1 class="my-6 text-center">Тестовое задание SquareGPS</h1>
+  <h1 class="my-6 text-center">{{ t('home.title') }}</h1>
+
   <v-container>
     <p>
       Необходимо с помощью
